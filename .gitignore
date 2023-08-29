@@ -1,2 +1,5 @@
 # Project exclude paths
 /env/
+pg_data
+__pycache__
+.idea

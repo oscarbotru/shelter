@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_celery_beat',
+
     'dogs',
     'users',
 ]
@@ -84,8 +86,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'shelter',
-        'USER': 'postgres'
+        'NAME': 'shelterdocker',
+        'USER': 'postgres',
+        'PASSWORD': 'mysecretpassword',
+        'HOST': 'db'
     }
 }
 
@@ -157,3 +161,5 @@ CACHES = {
         "LOCATION": os.getenv('CACHE_LOCATION'),
     }
 }
+
+CELERY_BROKER_URL = 'redis://redis:6379/0'
